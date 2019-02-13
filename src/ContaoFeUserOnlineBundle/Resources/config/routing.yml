@@ -1,0 +1,6 @@
+felastonline.controller.callback:
+   path: /la/{action}
+   defaults:
+       _scope: frontend
+       _token_check: false
+       _controller: 'ContaoFeUserOnlineBundle\Controller\FeLastOnlineContoller'
