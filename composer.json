@@ -27,7 +27,8 @@
 		"classmap": [
 					"src/ContaoFeUserOnlineBundle/Resources/contao/config/",
 					"src/ContaoFeUserOnlineBundle/Resources/contao/dca/",
-					"src/ContaoFeUserOnlineBundle/Resources/contao/modules/"
+					"src/ContaoFeUserOnlineBundle/Resources/contao/modules/",
+					"src/ContaoFeUserOnlineBundle/Resources/contao/templates/"
 		]
     },
     "extra": {
