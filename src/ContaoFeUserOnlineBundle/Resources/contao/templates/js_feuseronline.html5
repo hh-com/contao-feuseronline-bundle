@@ -1,7 +1,6 @@
 <?php
 
 
-\ContaoFeUserOnlineBundle\ModuleFeUserOnline::test();
 
 
 ?>
@@ -13,38 +12,31 @@ jQuery(function ($) {
     
     function setUsrOnline() 
     {
-    
         $.ajax({
-        type: "POST",
-        url: "la/usr",
-        data: {
-                type: "lastOnline",
-                usr: $(this).data('usr')
-        },
-        context: this,
-        success: function(result)
-        {
-
-            var status = result.status;
-            
-            if (status == true)
+            type: "POST",
+            url: "la/usr",
+            data: {
+                    type: "lastOnline",
+                    usr: $(this).data('usr')
+            },
+            context: this,
+            success: function(result)
             {
-                console.log("tstamp geändert - eingeloggt ");
+                var status = result.status;
+                if (status == true)
+                {
+                    console.log("tstamp geändert - eingeloggt ");
+                }
+                if (status == false)
+                {
+                    console.log("Nicht eingeloggt ");
+                }
             }
-
-            if (status == false)
-            {
-                console.log("Nicht eingeloggt ");
-            }
-            
-        },
-        complete: function()
-        {
-            
-        }
-    });
+        });
 
     }
+
+    
 
 });
 

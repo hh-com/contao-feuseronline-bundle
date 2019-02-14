@@ -12,10 +12,30 @@ class ModuleFeUserOnline extends \System
 	 *
 	 * @return string
 	 */
-	public static function test()
+
+	/**
+	 * Prüft ob der User mit der übergebenen ID bereits länger als eine Minute offline ist 
+	 */
+	public static function checkIfThisUserIsOnline($userId, $lastOnlineTstamp)
 	{
-		echo "check if user is online .. ";
+		if (FE_USER_LOGGED_IN !== true) 
+		{
+			return false;
+		}
+
+		/* User ist länger als eine Minute nicht online */
+		if ($lastOnlineTstamp + 60 < time()  )
+		{
+				return false;
+		}
+		else
+		{
+				return true;
+		}
 	}
+
+
+	
 
 	    
     /**
