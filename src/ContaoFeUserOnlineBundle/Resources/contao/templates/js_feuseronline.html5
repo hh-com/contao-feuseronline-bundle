@@ -9,9 +9,10 @@
 
 jQuery(function ($) {
 
-    window.setInterval(setUsrOnline, 3000);
+    window.setInterval(setUsrOnline, 10000);
     
-    function setUsrOnline() {
+    function setUsrOnline() 
+    {
     
         $.ajax({
         type: "POST",
@@ -24,68 +25,22 @@ jQuery(function ($) {
         success: function(result)
         {
 
-            console.log(result);
-            var status = result[0].status;
+            var status = result.status;
             
-            //console.log(result[0].status);
-            
-            if (status == "added")
+            if (status == true)
             {
-                var toolTipAdded = { 
-                    placement: 'top',
-                    html: true,
-                    title: "Sie folgen diesem Künstler",
-                    delay: { "show": 500, "hide": 100 }
-                }
-                $(this).tooltip(toolTipAdded);
-                $(this).tooltip('show');
-                $(this).addClass('following');
+                console.log("tstamp geändert - eingeloggt ");
             }
 
-            if (status == "removed")
+            if (status == false)
             {
-                var toolTipRemove = { 
-                    placement: 'top',
-                    html: true,
-                    title: "Sie folgen diesem Künstler nicht",
-                    delay: { "show": 500, "hide": 100 }
-                }
-                $(this).tooltip(toolTipRemove);
-
-                    /**Dont show tooltip in follower list after delete */
-
-                    console.log($(this).hasClass('remove'));
-
-                if($(this).hasClass('remove') == false)
-                {
-                    $(this).tooltip('show');
-                }
-                $(this).removeClass('following');
+                console.log("Nicht eingeloggt ");
             }
             
-            if (status =="loggedout")
-            {
-                // activate popover in template
-            }
-
-            /* controlled in template */
-            if (status =="self")
-            {
-                var toolTipSelf = { 
-                    placement: 'top',
-                    html: true,
-                    title: "Du kannst dir nicht selber folgen",
-                    delay: { "show": 500, "hide": 100 }
-                }
-                $(this).tooltip(toolTipSelf);
-            
-                $(this).tooltip('show');
-                
-            }
         },
         complete: function()
         {
-            event.preventDefault();
+            
         }
     });
 

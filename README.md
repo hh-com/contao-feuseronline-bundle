@@ -1,2 +1,2 @@
-Contao Messenger Bundle
-Send PN between Members and Groups
+Contao Fronten User Online
+Set a timestamp by ajax if user is online

@@ -14,7 +14,7 @@ class ModuleFeUserOnline extends \System
 	 */
 	public static function test()
 	{
-		echo "haaallllo";
+		echo "check if user is online .. ";
 	}
 
 	    
