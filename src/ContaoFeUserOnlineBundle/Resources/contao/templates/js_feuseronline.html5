@@ -1,9 +1,8 @@
-<?php
-
-
-
-
-?>
+<?php 
+/**
+ * Template nur einbinden wenn der User eingeloggt ist
+ */
+if (FE_USER_LOGGED_IN === true): ?>
 <script>
 
 jQuery(function ($) {
@@ -25,7 +24,7 @@ jQuery(function ($) {
                 var status = result.status;
                 if (status == true)
                 {
-                    console.log("tstamp geändert - eingeloggt ");
+                    console.log("Eingeloggt - tstamp geändert");
                 }
                 if (status == false)
                 {
@@ -41,3 +40,5 @@ jQuery(function ($) {
 });
 
 </script>
+
+<?php endif; ?>

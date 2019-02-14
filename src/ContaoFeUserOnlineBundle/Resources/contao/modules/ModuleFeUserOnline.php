@@ -6,25 +6,20 @@ class ModuleFeUserOnline extends \System
 {
     
 	protected $strTemplate = 'js_feuseronline';
-	
-	/**
-	 * Display a wildcard in the back end 
-	 *
-	 * @return string
-	 */
 
 	/**
-	 * Prüft ob der User mit der übergebenen ID bereits länger als eine Minute offline ist 
+	 * Prüft ob der übergebene Timestamp älter als eine Minute ist 
 	 */
-	public static function checkIfThisUserIsOnline($userId, $lastOnlineTstamp)
+	public static function checkIfThisTimestampIsOnline($lastOnlineTstamp)
 	{
+
 		if (FE_USER_LOGGED_IN !== true) 
 		{
-			return false;
+			return "loggedout";
 		}
-
 		/* User ist länger als eine Minute nicht online */
-		if ($lastOnlineTstamp + 60 < time()  )
+		#if ($lastOnlineTstamp + 60 < time()  )
+		if ($lastOnlineTstamp + 20 < time()  )
 		{
 				return false;
 		}
@@ -32,28 +27,7 @@ class ModuleFeUserOnline extends \System
 		{
 				return true;
 		}
+		
 	}
 
-
-	
-
-	    
-    /**
-     * Generates the module.
-     */
-    protected function compile()
-    {
-		echo "compile  FEUSERONLINEEEEEEE";
-		echo "verwende das andere file -.......";
-		exit;
-		if (FE_USER_LOGGED_IN !== true) 
-		{
-			die("Please log in!");
-		}
-
-	}
-
-	
-
-	
 }
