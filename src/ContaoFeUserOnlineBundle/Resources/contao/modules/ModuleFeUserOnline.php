@@ -9,6 +9,17 @@ class ModuleFeUserOnline extends \System
 
 	/**
 	 * Prüft ob der übergebene Timestamp älter als eine Minute ist 
+	 * 
+	 * USAGE in TEMPLATE:
+	 * if (\ContaoFeUserOnlineBundle\ModuleFeUserOnline::checkIfThisTimestampIsOnline($this->artist['lastOnline']) === "loggedout"):
+	 * #keine Ausgabe wenn der User nicht eingeloggt ist
+	 * elseif(\ContaoFeUserOnlineBundle\ModuleFeUserOnline::checkIfThisTimestampIsOnline($this->artist['lastOnline']) === true):
+	 * <div class="onlineStatus">user is online</div>
+	 * else:
+	 * <div class="onlineStatus">user is NOT online</div>
+	 * endif;
+	 * 
+	 * 
 	 */
 	public static function checkIfThisTimestampIsOnline($lastOnlineTstamp)
 	{
