@@ -4,3 +4,9 @@ fe_last_online.controller.felastonline:
         _scope: frontend
         _token_check: false
         _controller: 'ContaoFeUserOnlineBundle\Controller\FelastonlineController'
+fe_last_online.controller.feartistimageupload:
+    path: /artimg/{action}
+    defaults:
+        _scope: frontend
+        _token_check: false
+        _controller: 'ContaoFeUserOnlineBundle\Controller\FeAristImageUploadController'
